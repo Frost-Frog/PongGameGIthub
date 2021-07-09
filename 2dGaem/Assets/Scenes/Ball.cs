@@ -19,19 +19,20 @@ public class Ball : MonoBehaviour
     public GameObject pRightWin;
     int pLeftcount;
     int pRightcount;
-    float jitter = 10f;
+    //float jitter = 10f;
     int[] jitterDirection = {1, 2};
     int[] takeoffdirection = {-1, 1};
     public int restart;
     
     float xmove;
     float ymove;
-    
+    //float speed_increase;
     Vector2 movement;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
+    float opposite;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,7 @@ public class Ball : MonoBehaviour
         pRightcount = 0;
         restart = 0;
         takeoff();
+        //speed_increase = 0;
         
     }
 
@@ -76,6 +78,11 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_rigidbody.velocity.x > 25 && _rigidbody.velocity.x < -25)
+        {
+            _rigidbody.AddForce(new Vector2(xmove * speed, 0));
+        }
+        
         // transform.Translate(direction * speed * Time.deltaTime);
         // if (transform.position.y < GameManager.bottomLeft.y + radius && direction.y < 0)
         // {
@@ -106,51 +113,62 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D collision)
     {
+        
 
         if (collision.gameObject.tag == "Paddle")
         {
+            Vector2 normal = collision.GetContact(0).normal;
+            
+        
             int jitterDir = jitterDirection[Random.Range(0, 2)];
             
             bool isRight = collision.gameObject.GetComponent<Paddle>().isRight;
 
             if (isRight == true)
             {
+                //_rigidbody.AddForce(new Vector2(-2*_rigidbody.velocity.x*-2 , 100));
                 hitcount += 1;
                 if (jitterDir == 1)
                 {
-                    movement.y = movement.y - jitter;
+                    _rigidbody.AddForce(new Vector2 (0, -10));
                 }
                 if (jitterDir == 2)
                 {
-                    movement.y = movement.y + jitter;
+                    _rigidbody.AddForce(new Vector2 (0, 10));
                 }
-                //direction.x = -direction.x; 
+                
             }
             if (isRight == false)
             {
+                //_rigidbody.AddForce(new Vector2(-2*_rigidbody.velocity.x , 100));
                 hitcount += 1;
                 if (jitterDir == 1)
                 {
-                    movement.y = movement.y - jitter;
+                    _rigidbody.AddForce(new Vector2 (0, -10));
                 }
                 if (jitterDir == 2)
                 {
-                    movement.y = movement.y + jitter;
+                    _rigidbody.AddForce(new Vector2 (0, 10));
                 }
-                //direction.x = -direction.x;
                 
             }
-
-            if (hitcount % 10 == 0)
-            {
-                speed += 100;
-                Debug.Log(hitcount);
-            }
+        
 
             float move = collision.gameObject.GetComponent<Paddle>().move;
             if (move != 0)
             {
-                movement.y = movement.y + move*50;
+                _rigidbody.AddForce(new Vector2(0, move*50));
+            }
+            Debug.Log(move);
+
+            Debug.Log(_rigidbody.velocity.y);
+            
+            if (hitcount % 5 == 0)
+            {
+        
+                speed += 25;
+               _rigidbody.AddForce(normal*25);
+                
             }
             Debug.Log(hitcount);
         }
@@ -183,11 +201,11 @@ public class Ball : MonoBehaviour
         transform.position = new Vector2(0, 0);
         // direction = new Vector2(random1, random2).normalized;
         
-        float xmove = Random.value < 0.5f ? -1.0f : 1.0f;
-        float ymove = Random.value < 0.5f ? Random.Range( -1.0f, -0.5f) : Random.Range(0.5f, 1.0f);
+        xmove = Random.value < 0.5f ? -1.0f : 1.0f;
+        ymove = Random.value < 0.5f ? Random.Range( -1.0f, -0.5f) : Random.Range(0.5f, 1.0f);
         //direction = new Vector2(xmove, ymove);
         Vector2 movement = new Vector2(xmove * speed, ymove * speed);
         _rigidbody.AddForce(movement);
-
+        Debug.Log(movement.x);
     }
 }
