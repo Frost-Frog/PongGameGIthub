@@ -135,5 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: {fileID: 2776505592853398598, guid: 7dc5ff72a304e194fb813056f0195905, type: 3}
+  speed: 0
   pLeftWin: {fileID: 3424884570347727699, guid: 995c26e977d03a34abbdfac9b9da5edb, type: 3}
   pRightWin: {fileID: 6726779271600625283, guid: 6ab704d8762dfa844aeb2d1c148912a4, type: 3}
+  restart: 0

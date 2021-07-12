@@ -59,7 +59,7 @@ public class Ball : MonoBehaviour
             pLeftWin.SetActive(true);
             restart = 1;
             yield return new WaitForSecondsRealtime(5);
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("EndMenu");
             
         }
 
@@ -70,7 +70,7 @@ public class Ball : MonoBehaviour
             pRightWin.SetActive(true);
             restart = 1;
             yield return new WaitForSecondsRealtime(5);
-            SceneManager.LoadScene("Menu");   
+            SceneManager.LoadScene("EndMenu");   
         }
     }
 
@@ -78,10 +78,23 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_rigidbody.velocity.x > 25 && _rigidbody.velocity.x < -25)
+        if(_rigidbody.velocity.x > -7 && _rigidbody.velocity.x < 7)
         {
-            _rigidbody.AddForce(new Vector2(xmove * speed, 0));
+            if (_rigidbody.velocity.x > 0) 
+            {
+
+                _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+                _rigidbody.AddForce(new Vector2(1*speed, 0));
+            }
+            if (_rigidbody.velocity.x < 0) 
+            {
+
+                _rigidbody.velocity = Vector2.zero;
+                _rigidbody.AddForce(new Vector2(-1*speed, 0));
+            }
+           
         }
+       // Debug.Log(_rigidbody.velocity.x);
         
         // transform.Translate(direction * speed * Time.deltaTime);
         // if (transform.position.y < GameManager.bottomLeft.y + radius && direction.y < 0)
