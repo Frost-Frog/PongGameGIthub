@@ -9,6 +9,8 @@ public class Ball : MonoBehaviour
 {
     //public GameObject RightWall;
     //public GameObject LeftWall;
+    bool CanClick;
+    bool AutoLoad;
     float hitcount = 0;
     private Rigidbody2D _rigidbody;
     public TextMeshProUGUI Score; 
@@ -36,6 +38,8 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CanClick = false;
+        AutoLoad = true;
         pLeftWin.SetActive(false);
         pRightWin.SetActive(false);
         //speed = 6;
@@ -54,23 +58,34 @@ public class Ball : MonoBehaviour
          Score.text = pLeftcount.ToString() + " - " + pRightcount.ToString();
         if (pLeftcount >= 7)
         {
+            CanClick = true;
             Time.timeScale = 0;
-            enabled = false;
+            //enabled = false;
             pLeftWin.SetActive(true);
             restart = 1;
+            Debug.Log(CanClick);
             yield return new WaitForSecondsRealtime(5);
-            SceneManager.LoadScene("EndMenu");
+            if(AutoLoad) 
+            {
+                SceneManager.LoadScene("EndMenu");
+            }
+            
             
         }
 
         if (pRightcount >= 7)
         {
+            CanClick = true;
             Time.timeScale = 0;
-            enabled = false;
+            //enabled = false;
             pRightWin.SetActive(true);
             restart = 1;
+            Debug.Log(CanClick);
             yield return new WaitForSecondsRealtime(5);
-            SceneManager.LoadScene("EndMenu");   
+            if(AutoLoad) 
+            {
+                SceneManager.LoadScene("EndMenu");
+            } 
         }
     }
 
@@ -93,6 +108,14 @@ public class Ball : MonoBehaviour
                 _rigidbody.AddForce(new Vector2(-1*speed, 0));
             }
            
+        }
+        if (CanClick == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Return) == true)
+            {
+                AutoLoad = false;
+                SceneManager.LoadScene("EndMenu");
+            }
         }
        // Debug.Log(_rigidbody.velocity.x);
         
