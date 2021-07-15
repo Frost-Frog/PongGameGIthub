@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMenu : MonoBehaviour
 {
-    //public GameObject yourChildObj;
+   //public GameObject yourChildObj;
     public GameObject PaddleDecider;
     private GameObject AIPaddle;
     public GameObject PlayerPaddle;
-    public AsyncOperation asyncOperation;
+    //public AsyncOperation asyncOperation;
     
     void Start()
     {   
         //asyncOperation = SceneManager.LoadSceneAsync("PongPlay");
         
         DontDestroyOnLoad(PaddleDecider);
+        
         //SceneManager.LoadScene("PongPlay", LoadSceneMode.Additive);
         //asyncOperation.allowSceneActivation = false;
         //yourChildObj.transform.parent = null;
@@ -32,14 +33,16 @@ public class PlayerMenu : MonoBehaviour
     {
         
         //SceneManager.LoadScene("PongPlay");
-        
-        
-        PaddleDecider.SetActive(false);
-        AIPaddle = GameObject.Find("AIpaddle");
-        PlayerPaddle = GameObject.Find("PaddleRight");
-        AIPaddle.SetActive(true);
-        PlayerPaddle.SetActive(false);
-        
+        Scene scene2 = SceneManager.GetActiveScene();
+        if(scene2.name == "PongPlay")
+        {
+            PaddleDecider.SetActive(false);
+            AIPaddle = GameObject.Find("AIpaddle");
+            PlayerPaddle = GameObject.Find("PaddleRight");
+            AIPaddle.SetActive(true);
+            PlayerPaddle.SetActive(false);
+            //SceneManager.sceneLoaded -= PlayGameSingle;
+        }
     }
     public void PlayGame2Player()
     {
@@ -50,14 +53,16 @@ public class PlayerMenu : MonoBehaviour
     {
         
         //SceneManager.LoadScene("PongPlay");
-        
-        
-        PaddleDecider.SetActive(false);
-        AIPaddle = GameObject.Find("AIpaddle");
-        PlayerPaddle = GameObject.Find("PaddleRight");
-        AIPaddle.SetActive(false);
-        PlayerPaddle.SetActive(true);
-        
+        //scene = SceneManager.GetSceneByName("PongPlay");
+        Scene scene2 = SceneManager.GetActiveScene();
+        if(scene2.name == "PongPlay")
+        {
+            PaddleDecider.SetActive(false);
+            AIPaddle = GameObject.Find("AIpaddle");
+            PlayerPaddle = GameObject.Find("PaddleRight");
+            AIPaddle.SetActive(false);
+            PlayerPaddle.SetActive(true);
+            //SceneManager.sceneLoaded -= PlayGameSingle;
+        }
     }
-
 }
