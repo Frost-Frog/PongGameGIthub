@@ -40,20 +40,20 @@ public class Paddle : MonoBehaviour
     public void init(bool IsRightPaddle)
     {
         isRight = IsRightPaddle;
-        Vector2 pos = Vector2.zero;
+        //Vector2 pos = Vector2.zero;
         if (IsRightPaddle)
         {
-            pos = new Vector2(GameManager.topRight.x - 1, 0);
+            //pos = new Vector2(GameManager.topRight.x - 1, 0);
 
             input = "PaddleRight";
         }
         else
         {
-            pos = new Vector2(GameManager.bottomLeft.x + 1, 0);
+            //pos = new Vector2(GameManager.bottomLeft.x + 1, 0);
             input = "PaddleLeft";
         }
 
-        transform.position = pos;
+       // transform.position = pos;
         transform.name = input;
     }
 

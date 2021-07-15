@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 768662997131248672}
   - component: {fileID: 6633033427362331308}
   - component: {fileID: 6355356514088122276}
+  - component: {fileID: 4262047377557656236}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Paddle
@@ -145,5 +146,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pspeed: 30
+  move: 0
+  isRight: 0
+--- !u!114 &4262047377557656236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370588898881053888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d047dd31f10a790498e0a1f3160bb5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ballrb: {fileID: 0}
+  pspeed: 0
   move: 0
   isRight: 0
