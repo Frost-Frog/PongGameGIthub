@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Ball : MonoBehaviour
 {
@@ -67,7 +68,7 @@ public class Ball : MonoBehaviour
             yield return new WaitForSecondsRealtime(5);
             if(AutoLoad) 
             {
-                SceneManager.LoadScene("EndMenu");
+                SceneManager.LoadScene("StartMenu");
             }
             
             
@@ -84,7 +85,7 @@ public class Ball : MonoBehaviour
             yield return new WaitForSecondsRealtime(5);
             if(AutoLoad) 
             {
-                SceneManager.LoadScene("EndMenu");
+                SceneManager.LoadScene("StartMenu");
             } 
         }
     }
@@ -114,7 +115,7 @@ public class Ball : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return) == true)
             {
                 AutoLoad = false;
-                SceneManager.LoadScene("EndMenu");
+                SceneManager.LoadScene("StartMenu");
             }
         }
        // Debug.Log(_rigidbody.velocity.x);
@@ -153,8 +154,9 @@ public class Ball : MonoBehaviour
 
         if (collision.gameObject.tag == "Paddle")
         {
+            FindObjectOfType<AudioManager>().Play("PongPaddleAudio");
             Vector2 normal = collision.GetContact(0).normal;
-            
+            Debug.Log(_rigidbody.velocity.x);
         
             int jitterDir = jitterDirection[Random.Range(0, 2)];
             
@@ -195,9 +197,9 @@ public class Ball : MonoBehaviour
             {
                 _rigidbody.AddForce(new Vector2(0, move*50));
             }
-            Debug.Log(move);
+            //Debug.Log(move);
 
-            Debug.Log(_rigidbody.velocity.y);
+            //Debug.Log(_rigidbody.velocity.y);
             
             if (hitcount % 5 == 0)
             {
@@ -206,11 +208,12 @@ public class Ball : MonoBehaviour
                _rigidbody.AddForce(normal*25);
                 
             }
-            Debug.Log(hitcount);
+            //Debug.Log(hitcount);
         }
 
         if (collision.gameObject.tag == "Wall")
         {
+            
             bool rightwall = collision.gameObject.GetComponent<Wall>().rightwall;
            
            
@@ -226,7 +229,10 @@ public class Ball : MonoBehaviour
             }
             takeoff();
         }
-        
+        if (collision.gameObject.tag == "TopWall")
+        {
+            FindObjectOfType<AudioManager>().Play("WallBounce");
+        }
     }
 
     void takeoff()
@@ -242,6 +248,6 @@ public class Ball : MonoBehaviour
         //direction = new Vector2(xmove, ymove);
         Vector2 movement = new Vector2(xmove * speed, ymove * speed);
         _rigidbody.AddForce(movement);
-        Debug.Log(movement.x);
+        //Debug.Log(movement.x);
     }
 }

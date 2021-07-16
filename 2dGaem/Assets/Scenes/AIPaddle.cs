@@ -33,6 +33,7 @@ public class AIPaddle : MonoBehaviour
             {
                 move = -1 * pspeed * Time.deltaTime;
             }  
+            
 
             if (transform.position.y < GameManager.bottomLeft.y + height/2 && move < 0)
             {
@@ -62,6 +63,10 @@ public class AIPaddle : MonoBehaviour
             {
                 move = -1 * pspeed * Time.deltaTime;
             }  
+            if(transform.position.y == 0)
+            {
+                move = 0;
+            }
 
             if (transform.position.y < GameManager.bottomLeft.y + height/2 && move < 0)
             {

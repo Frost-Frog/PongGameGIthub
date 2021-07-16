@@ -26,6 +26,7 @@ public class PlayerMenu : MonoBehaviour
         
     public void PlayGame1Player()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("PongPlay");
         SceneManager.sceneLoaded += PlayGameSingle;
     }
@@ -43,9 +44,15 @@ public class PlayerMenu : MonoBehaviour
             PlayerPaddle.SetActive(false);
             //SceneManager.sceneLoaded -= PlayGameSingle;
         }
+        if(scene2.name == "PongPlay")
+        {
+            SceneManager.sceneLoaded -= PlayGameSingle;
+        }
+        
     }
     public void PlayGame2Player()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("PongPlay");
         SceneManager.sceneLoaded += PlayGameDouble;
     }
@@ -64,5 +71,10 @@ public class PlayerMenu : MonoBehaviour
             PlayerPaddle.SetActive(true);
             //SceneManager.sceneLoaded -= PlayGameSingle;
         }
+        if(scene2.name == "PongPlay")
+        {
+            SceneManager.sceneLoaded -= PlayGameDouble;
+        }
     }
+    
 }

@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_MinValue: -80
   m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 20
+  m_Value: -10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2532,7 +2532,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069953760}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1069953762
 Camera:
   m_ObjectHideFlags: 0
