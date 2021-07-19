@@ -28,6 +28,7 @@ public class PlayerMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("PongPlay");
+        //SceneManager.sceneLoaded += FindObjectOfType<AudioManager>().PlayGameTheme;
         SceneManager.sceneLoaded += PlayGameSingle;
     }
     public void PlayGameSingle(Scene scene, LoadSceneMode mode)
@@ -35,6 +36,7 @@ public class PlayerMenu : MonoBehaviour
         
         //SceneManager.LoadScene("PongPlay");
         Scene scene2 = SceneManager.GetActiveScene();
+        
         if(scene2.name == "PongPlay")
         {
             PaddleDecider.SetActive(false);
@@ -48,6 +50,7 @@ public class PlayerMenu : MonoBehaviour
         {
             SceneManager.sceneLoaded -= PlayGameSingle;
         }
+        FindObjectOfType<AudioManager>().PlayGameTheme();
         
     }
     public void PlayGame2Player()
