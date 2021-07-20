@@ -7,7 +7,10 @@ public class Paddle : MonoBehaviour
     protected Rigidbody2D _rigidbody;
     [SerializeField]
     float pspeed;
-    
+    GameObject ParticlePosLeft;
+    GameObject ParticlePosRight;
+    ParticleSystem psLeft;
+    ParticleSystem psRight;
     float height;
     public float move;
 
@@ -16,7 +19,8 @@ public class Paddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      height = transform.localScale.y;
+        
+        height = transform.localScale.y;
     }
 
     // Update is called once per frame
@@ -56,5 +60,25 @@ public class Paddle : MonoBehaviour
        // transform.position = pos;
         transform.name = input;
     }
-
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        psRight = GameObject.Find("HitParticleRight").GetComponent<ParticleSystem>();
+        psLeft = GameObject.Find("HitParticleLeft").GetComponent<ParticleSystem>();
+        ParticlePosLeft = GameObject.Find("HitParticleLeft");
+        ParticlePosRight = GameObject.Find("HitParticleRight");
+        if(collider.gameObject.tag == "Ball")
+        {
+            if(isRight)
+            {
+                ParticlePosRight.transform.position = new Vector3(ParticlePosRight.transform.position.x, GameObject.Find("Ball").transform.position.y, ParticlePosRight.transform.position.z);
+                psRight.Play();
+            }
+            
+            if(!isRight)
+            {
+                ParticlePosLeft.transform.position = new Vector3(ParticlePosLeft.transform.position.x, GameObject.Find("Ball").transform.position.y, ParticlePosLeft.transform.position.z);
+                psLeft.Play();
+            }
+        }
+    }
 }

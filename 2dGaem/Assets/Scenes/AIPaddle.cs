@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AIPaddle : MonoBehaviour
 {
+    //GameObject ParticlePosLeft;
+    GameObject ParticlePosRight;
+    //ParticleSystem psLeft;
+    ParticleSystem psRight;
     public Rigidbody2D Ballrb;
     protected Rigidbody2D _rigidbody;
     [SerializeField]
@@ -17,7 +21,11 @@ public class AIPaddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      height = transform.localScale.y;
+        psRight = GameObject.Find("HitParticleRight").GetComponent<ParticleSystem>();
+        //psLeft = GameObject.Find("HitParticleLeft").GetComponent<ParticleSystem>();
+        //ParticlePosLeft = GameObject.Find("HitParticleLeft");
+        ParticlePosRight = GameObject.Find("HitParticleRight");
+        height = transform.localScale.y;
     }
 
     // Update is called once per frame
@@ -83,6 +91,7 @@ public class AIPaddle : MonoBehaviour
 
     public void init(bool IsRightPaddle)
     {
+        
         isRight = IsRightPaddle;
         Vector2 pos = Vector2.zero;
         if (IsRightPaddle)
@@ -99,5 +108,17 @@ public class AIPaddle : MonoBehaviour
 
         transform.position = pos;
         transform.name = input;
+    }
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        ParticlePosRight = GameObject.Find("HitParticleRight");
+        psRight = GameObject.Find("HitParticleRight").GetComponent<ParticleSystem>();
+        
+        if(collider.gameObject.tag == "Ball")
+        {
+            
+            ParticlePosRight.transform.position = new Vector3(ParticlePosRight.transform.position.x, GameObject.Find("Ball").transform.position.y, ParticlePosRight.transform.position.z);
+            psRight.Play();
+        }
     }
 }

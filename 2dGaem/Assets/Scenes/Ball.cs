@@ -213,6 +213,7 @@ public class Ball : MonoBehaviour
 
         if (collision.gameObject.tag == "Wall")
         {
+            FindObjectOfType<AudioManager>().Play("Score");
             
             bool rightwall = collision.gameObject.GetComponent<Wall>().rightwall;
            

@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - AIPaddle
     - AIPaddleLeft
     - AudioManager
+    - BOB
     - Ball
     - GameManager
     - MainMenu
@@ -17,7 +18,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -142,7 +142,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6750}
     - Class: 114
-      Script: {instanceID: 7668}
+      Script: {instanceID: 7670}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -182,8 +182,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -205,17 +203,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6342}
     - Class: 114
-      Script: {instanceID: 7170}
+      Script: {instanceID: 7172}
     - Class: 114
-      Script: {instanceID: 7364}
+      Script: {instanceID: 7366}
     - Class: 114
-      Script: {instanceID: 7502}
+      Script: {instanceID: 7670}
     - Class: 114
-      Script: {instanceID: 7668}
+      Script: {instanceID: 7934}
     - Class: 114
-      Script: {instanceID: 7932}
-    - Class: 114
-      Script: {instanceID: 7980}
+      Script: {instanceID: 7982}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -234,12 +230,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
-      Script: {instanceID: 0}
     Assets/Scenes/StartMenu.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -256,6 +246,8 @@ ScriptsOnlyBuild:
     - Class: 49
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -364,15 +356,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6750}
     - Class: 114
-      Script: {instanceID: 7212}
+      Script: {instanceID: 6788}
     - Class: 114
-      Script: {instanceID: 7524}
+      Script: {instanceID: 7214}
     - Class: 114
-      Script: {instanceID: 7668}
+      Script: {instanceID: 7504}
     - Class: 114
-      Script: {instanceID: 7726}
+      Script: {instanceID: 7526}
     - Class: 114
-      Script: {instanceID: 7758}
+      Script: {instanceID: 7670}
+    - Class: 114
+      Script: {instanceID: 7728}
+    - Class: 114
+      Script: {instanceID: 7760}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1364,6 +1360,12 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
+      Hash: 42eb87a6477563a845ef8a30ee7da86b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BOB
+  - hash:
+      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1484,7 +1486,7 @@ ScriptsOnlyBuild:
     className: PixelPerfectCamera
   - hash:
       serializedVersion: 2
-      Hash: 1ea927a623381ef9ae1b55cb0929441b
+      Hash: ef2a9ec1339861c56e6e90dd97fa494e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioManager
