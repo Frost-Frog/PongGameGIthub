@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 19672
+  controlID: 2934
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 19673
+  controlID: 2935
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 19674
+  controlID: 2936
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3016feff8c2ffeff3034feff7846feff2e4cfefffee5ffffc0f1ffff36f2ffffaef3fffffaf3ffff06f4ffff40fbffff4e74000020830000
+      m_ExpandedIDs: b8f6ffff2ef7ffffa6f8ffff10f9ffff1cf9ffff40fbffff4c71000056710000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -307,9 +307,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.988501, y: 2.8442984, z: -2760.9932}
+    m_Target: {x: -5.4036217, y: 1.6015465, z: -4271.88}
     speed: 2
-    m_Value: {x: -2.988501, y: 2.8442984, z: -2760.9932}
+    m_Value: {x: -5.4036217, y: 1.6015465, z: -4271.88}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -360,9 +360,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.435833
+    m_Target: 8.005874
     speed: 2
-    m_Value: 12.435833
+    m_Value: 8.005874
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -406,8 +406,8 @@ MonoBehaviour:
     y: 671
     width: 1265
     height: 276
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -453,22 +453,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 63
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: 63
   m_LastProjectPath: C:\Users\purpl\Documents\GitHub\PongGameGIthub\2dGaem
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e84f0000
-    m_LastClickedID: 20456
-    m_ExpandedIDs: 00000000e44f000000ca9a3b
+    m_SelectedIDs: fc4f0000
+    m_LastClickedID: 20476
+    m_ExpandedIDs: 00000000fc4f0000fe4f00000050000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,7 +496,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e44f000000ca9a3b
+    m_ExpandedIDs: 00000000fc4f0000fe4f00000050000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -521,10 +521,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 14500000
-    m_LastClickedInstanceID: 20500
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000000000000fcbafeffcc4f0000
+    m_SelectedInstanceIDs: dc0b0000
+    m_LastClickedInstanceID: 3036
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000fcbafeffcc4f0000c04d000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -599,13 +599,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 744
-    width: 1429
+    width: 1264
     height: 255
   m_ViewDataDictionary: {fileID: 0}
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
-    m_LastClickedID: 19862
+    m_LastClickedID: 19896
     m_ExpandedIDs: 12eb343c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -721,12 +721,12 @@ MonoBehaviour:
       oldMaxSizes: 
       oldSplitSize: 0
     m_HorizontalSplitter:
-      ID: 9283
+      ID: 33849
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes:
-      - 429
-      - 1000
+      - 379
+      - 885
       relativeSizes:
       - 0.3
       - 0.7
@@ -736,7 +736,7 @@ MonoBehaviour:
       maxSizes:
       - 0
       - 0
-      lastTotalSize: 1429
+      lastTotalSize: 1264
       splitSize: 6
       xOffset: 0
       m_Version: 1
@@ -769,8 +769,8 @@ MonoBehaviour:
     y: 0
     width: 655
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -807,7 +807,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 20500
+  m_LastInspectedObjectInstanceID: 3036
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_LockTracker:

@@ -9,9 +9,23 @@ public class AudioManager : MonoBehaviour
 {
     //Scene activescene;
     public AudioMixerGroup audioMixer;
+    public static AudioManager instance;
     public Sound[] sounds;    // Start is called before the first frame update
+    
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    
+        DontDestroyOnLoad(gameObject);
+        
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -25,19 +39,17 @@ public class AudioManager : MonoBehaviour
     void Start()
     { 
         //SceneManager.sceneLoaded += PlayGameTheme;
-        DontDestroyOnLoad(this);
         Play("MenuTheme");
-        
     }
     public void PlayGameTheme()
     {
-        Scene activescene = SceneManager.GetActiveScene();
-        if(activescene.name == "PongPlay" )
-        {
+        //Scene activescene = SceneManager.GetActiveScene();
+        //if(activescene.name == "PongPlay" )
+        //{
             Debug.Log("yes");
             Stop("MenuTheme");
             Play("GameTheme");
-        }
+        //}
         
     }
     public void Stop(string name)

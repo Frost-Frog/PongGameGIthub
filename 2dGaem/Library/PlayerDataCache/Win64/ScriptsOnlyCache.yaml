@@ -9,8 +9,8 @@ ScriptsOnlyBuild:
     - GameManager
     - MainMenu
     - Paddle
+    - PauseMenu
     - PlayerMenu
-    - Replaygame
     - SettingsMenu
     - VolumeText
     - Wall
@@ -18,6 +18,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -98,67 +99,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/EndMenu.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 1664}
-    - Class: 114
-      Script: {instanceID: 1668}
-    - Class: 114
-      Script: {instanceID: 2686}
-    - Class: 114
-      Script: {instanceID: 3136}
-    - Class: 114
-      Script: {instanceID: 3204}
-    - Class: 114
-      Script: {instanceID: 4152}
-    - Class: 114
-      Script: {instanceID: 4906}
-    - Class: 114
-      Script: {instanceID: 5158}
-    - Class: 114
-      Script: {instanceID: 5708}
-    - Class: 114
-      Script: {instanceID: 5754}
-    - Class: 114
-      Script: {instanceID: 5900}
-    - Class: 114
-      Script: {instanceID: 6212}
-    - Class: 114
-      Script: {instanceID: 6750}
-    - Class: 114
-      Script: {instanceID: 7670}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
     Assets/Scenes/PongPlay.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -185,7 +125,15 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1664}
+    - Class: 114
       Script: {instanceID: 1668}
+    - Class: 114
+      Script: {instanceID: 1874}
+    - Class: 114
+      Script: {instanceID: 2686}
+    - Class: 114
+      Script: {instanceID: 3136}
     - Class: 114
       Script: {instanceID: 3204}
     - Class: 114
@@ -195,23 +143,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4980}
     - Class: 114
+      Script: {instanceID: 5078}
+    - Class: 114
       Script: {instanceID: 5158}
     - Class: 114
       Script: {instanceID: 5754}
     - Class: 114
       Script: {instanceID: 5900}
     - Class: 114
+      Script: {instanceID: 6212}
+    - Class: 114
       Script: {instanceID: 6342}
     - Class: 114
-      Script: {instanceID: 7172}
+      Script: {instanceID: 6428}
     - Class: 114
-      Script: {instanceID: 7366}
+      Script: {instanceID: 7174}
     - Class: 114
-      Script: {instanceID: 7670}
+      Script: {instanceID: 7368}
     - Class: 114
-      Script: {instanceID: 7934}
+      Script: {instanceID: 7672}
     - Class: 114
-      Script: {instanceID: 7982}
+      Script: {instanceID: 7936}
+    - Class: 114
+      Script: {instanceID: 7984}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -219,6 +173,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -229,6 +187,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
     Assets/Scenes/StartMenu.unity:
     - Class: 1
@@ -346,29 +310,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6316}
     - Class: 114
-      Script: {instanceID: 6452}
+      Script: {instanceID: 6454}
     - Class: 114
-      Script: {instanceID: 6564}
+      Script: {instanceID: 6566}
     - Class: 114
-      Script: {instanceID: 6618}
+      Script: {instanceID: 6620}
     - Class: 114
-      Script: {instanceID: 6622}
+      Script: {instanceID: 6624}
     - Class: 114
-      Script: {instanceID: 6750}
+      Script: {instanceID: 6752}
     - Class: 114
-      Script: {instanceID: 6788}
+      Script: {instanceID: 6790}
     - Class: 114
-      Script: {instanceID: 7214}
+      Script: {instanceID: 7216}
     - Class: 114
-      Script: {instanceID: 7504}
+      Script: {instanceID: 7506}
     - Class: 114
-      Script: {instanceID: 7526}
+      Script: {instanceID: 7528}
     - Class: 114
-      Script: {instanceID: 7670}
+      Script: {instanceID: 7672}
     - Class: 114
-      Script: {instanceID: 7728}
+      Script: {instanceID: 7730}
     - Class: 114
-      Script: {instanceID: 7760}
+      Script: {instanceID: 7762}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -466,7 +430,7 @@ ScriptsOnlyBuild:
     className: SkewTextExample
   - hash:
       serializedVersion: 2
-      Hash: d835e37be8caf473a0d64dc941f2a2a8
+      Hash: 0912102ca3a500559f28051fb346e2c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsMenu
@@ -1282,6 +1246,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: c589cae7175b22a92c9e8cb7dc1d81e3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseMenu
+  - hash:
+      serializedVersion: 2
       Hash: f79e983672d079ff24eee15484fb74b8
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -1360,7 +1330,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 42eb87a6477563a845ef8a30ee7da86b
+      Hash: 078a32a3ddbcb574dc663405bcb5bbeb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BOB
@@ -1602,5 +1572,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/PongPlay.unity
-  - Assets/Scenes/EndMenu.unity
   playerPath: C:/Users/purpl/Documents/GitHub/PongGameGIthub/2dGaem/Pong/2dGaem.exe

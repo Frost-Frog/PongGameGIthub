@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayerMenu : MonoBehaviour
 {
    //public GameObject yourChildObj;
+   public GameObject P;
+   public GameObject Pa;
     public GameObject PaddleDecider;
     private GameObject AIPaddle;
-    public GameObject PlayerPaddle;
+    private GameObject PlayerPaddle;
     //public AsyncOperation asyncOperation;
     
     void Start()
@@ -26,17 +28,18 @@ public class PlayerMenu : MonoBehaviour
         
     public void PlayGame1Player()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        SceneManager.sceneLoaded += PlayGameSingle;
         SceneManager.LoadScene("PongPlay");
         //SceneManager.sceneLoaded += FindObjectOfType<AudioManager>().PlayGameTheme;
-        SceneManager.sceneLoaded += PlayGameSingle;
+        
     }
     public void PlayGameSingle(Scene scene, LoadSceneMode mode)
     {
         
         //SceneManager.LoadScene("PongPlay");
         Scene scene2 = SceneManager.GetActiveScene();
-        
+        GameObject go = GameObject.Find("GoodCanvas");
         if(scene2.name == "PongPlay")
         {
             PaddleDecider.SetActive(false);
@@ -44,18 +47,25 @@ public class PlayerMenu : MonoBehaviour
             PlayerPaddle = GameObject.Find("PaddleRight");
             AIPaddle.SetActive(true);
             PlayerPaddle.SetActive(false);
+            FindObjectOfType<AudioManager>().PlayGameTheme();
             //SceneManager.sceneLoaded -= PlayGameSingle;
         }
         if(scene2.name == "PongPlay")
         {
             SceneManager.sceneLoaded -= PlayGameSingle;
         }
-        FindObjectOfType<AudioManager>().PlayGameTheme();
-        
+        if(scene2.name == "StartMenu")
+        {
+            Destroy(go);
+            PaddleDecider.SetActive(true);
+            P.SetActive(true);
+            Pa.SetActive(true);
+            GameObject.Find("PlayerMenu").SetActive(false);
+        }
     }
     public void PlayGame2Player()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         SceneManager.LoadScene("PongPlay");
         SceneManager.sceneLoaded += PlayGameDouble;
     }
@@ -65,6 +75,7 @@ public class PlayerMenu : MonoBehaviour
         //SceneManager.LoadScene("PongPlay");
         //scene = SceneManager.GetSceneByName("PongPlay");
         Scene scene2 = SceneManager.GetActiveScene();
+        GameObject go = GameObject.Find("GoodCanvas");
         if(scene2.name == "PongPlay")
         {
             PaddleDecider.SetActive(false);
@@ -72,11 +83,20 @@ public class PlayerMenu : MonoBehaviour
             PlayerPaddle = GameObject.Find("PaddleRight");
             AIPaddle.SetActive(false);
             PlayerPaddle.SetActive(true);
+            FindObjectOfType<AudioManager>().PlayGameTheme();
             //SceneManager.sceneLoaded -= PlayGameSingle;
         }
         if(scene2.name == "PongPlay")
         {
             SceneManager.sceneLoaded -= PlayGameDouble;
+        }
+        if(scene2.name == "StartMenu")
+        {
+            Destroy(go);
+            PaddleDecider.SetActive(true);
+            P.SetActive(true);
+            Pa.SetActive(true);
+            GameObject.Find("PlayerMenu").SetActive(false);
         }
     }
     

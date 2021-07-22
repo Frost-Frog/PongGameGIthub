@@ -38,7 +38,17 @@ public class Paddle : MonoBehaviour
             move = 0;
         }
         transform.Translate(move * Vector2.up);
-
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            if(!isRight)
+            transform.localScale = new Vector2(transform.localScale.x, 20);
+            height = transform.localScale.y;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            transform.localScale = new Vector2(transform.localScale.x, 3.5f);
+            height = transform.localScale.y;
+        }
     }
 
     public void init(bool IsRightPaddle)

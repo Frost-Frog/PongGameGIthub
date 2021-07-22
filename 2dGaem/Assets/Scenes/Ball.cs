@@ -39,6 +39,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(1%5);
         CanClick = false;
         AutoLoad = true;
         pLeftWin.SetActive(false);
@@ -68,7 +69,10 @@ public class Ball : MonoBehaviour
             yield return new WaitForSecondsRealtime(5);
             if(AutoLoad) 
             {
+                FindObjectOfType<AudioManager>().Stop("GameTheme");
+                FindObjectOfType<AudioManager>().Play("MenuTheme");
                 SceneManager.LoadScene("StartMenu");
+                Time.timeScale = 1;
             }
             
             
@@ -85,7 +89,10 @@ public class Ball : MonoBehaviour
             yield return new WaitForSecondsRealtime(5);
             if(AutoLoad) 
             {
+                FindObjectOfType<AudioManager>().Stop("GameTheme");
+                FindObjectOfType<AudioManager>().Play("MenuTheme");
                 SceneManager.LoadScene("StartMenu");
+                Time.timeScale = 1;
             } 
         }
     }
@@ -94,19 +101,36 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_rigidbody.velocity.x > -7 && _rigidbody.velocity.x < 7)
+        //Debug.Log(_rigidbody.velocity.x);
+        if(_rigidbody.velocity.x > -8 - ((hitcount - hitcount%5)/5) && _rigidbody.velocity.x < 8 + ((hitcount - hitcount%5)/5))
         {
             if (_rigidbody.velocity.x > 0) 
             {
 
-                _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
-                _rigidbody.AddForce(new Vector2(1*speed, 0));
+                _rigidbody.velocity = new Vector2(8 + ((hitcount - hitcount%5)/5), _rigidbody.velocity.y);
+                //_rigidbody.AddForce(new Vector2(1*speed, 0));
             }
             if (_rigidbody.velocity.x < 0) 
             {
 
-                _rigidbody.velocity = Vector2.zero;
-                _rigidbody.AddForce(new Vector2(-1*speed, 0));
+                _rigidbody.velocity = new Vector2(-8 - ((hitcount - hitcount%5)/5), _rigidbody.velocity.y);
+                //_rigidbody.AddForce(new Vector2(-1*speed, 0));
+            }
+           
+        }
+        if(_rigidbody.velocity.x < -8 - ((hitcount - hitcount%5)/5) || _rigidbody.velocity.x > 8 + ((hitcount - hitcount%5)/5))
+        {
+            if (_rigidbody.velocity.x > 0) 
+            {
+
+                _rigidbody.velocity = new Vector2(8 + ((hitcount - hitcount%5)/5), _rigidbody.velocity.y);
+                //_rigidbody.AddForce(new Vector2(1*speed, 0));
+            }
+            if (_rigidbody.velocity.x < 0) 
+            {
+
+                _rigidbody.velocity = new Vector2(-8 - ((hitcount - hitcount%5)/5), _rigidbody.velocity.y);
+                //_rigidbody.AddForce(new Vector2(-1*speed, 0));
             }
            
         }
@@ -114,7 +138,10 @@ public class Ball : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) == true)
             {
+                Time.timeScale = 1;
                 AutoLoad = false;
+                FindObjectOfType<AudioManager>().Stop("GameTheme");
+                FindObjectOfType<AudioManager>().Play("MenuTheme");
                 SceneManager.LoadScene("StartMenu");
             }
         }
