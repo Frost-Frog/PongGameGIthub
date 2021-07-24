@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class PlayerMenu : MonoBehaviour
 {
    //public GameObject yourChildObj;
-   public GameObject P;
-   public GameObject Pa;
+    public Camera Camera;
+    public GameObject P;
+    public GameObject Pa;
     public GameObject PaddleDecider;
-    private GameObject AIPaddle;
-    private GameObject PlayerPaddle;
+    public GameObject AIPaddle;
+    public GameObject PlayerPaddle;
     //public AsyncOperation asyncOperation;
     
     void Start()
@@ -29,6 +30,7 @@ public class PlayerMenu : MonoBehaviour
     public void PlayGame1Player()
     {
         //Time.timeScale = 1;
+        SceneManager.sceneLoaded -= PlayGameDouble; 
         SceneManager.sceneLoaded += PlayGameSingle;
         SceneManager.LoadScene("PongPlay");
         //SceneManager.sceneLoaded += FindObjectOfType<AudioManager>().PlayGameTheme;
@@ -52,21 +54,25 @@ public class PlayerMenu : MonoBehaviour
         }
         if(scene2.name == "PongPlay")
         {
-            SceneManager.sceneLoaded -= PlayGameSingle;
+            //SceneManager.sceneLoaded -= PlayGameSingle;
         }
         if(scene2.name == "StartMenu")
         {
+            Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
             Destroy(go);
             PaddleDecider.SetActive(true);
             P.SetActive(true);
             Pa.SetActive(true);
             GameObject.Find("PlayerMenu").SetActive(false);
+            Canvas Canvas = PaddleDecider.GetComponent<Canvas>();
+            Canvas.worldCamera = Camera;
         }
     }
     public void PlayGame2Player()
     {
         //Time.timeScale = 1;
         SceneManager.LoadScene("PongPlay");
+        SceneManager.sceneLoaded -= PlayGameSingle;
         SceneManager.sceneLoaded += PlayGameDouble;
     }
     public void PlayGameDouble(Scene scene, LoadSceneMode mode)
@@ -88,15 +94,18 @@ public class PlayerMenu : MonoBehaviour
         }
         if(scene2.name == "PongPlay")
         {
-            SceneManager.sceneLoaded -= PlayGameDouble;
+            //SceneManager.sceneLoaded -= PlayGameDouble;
         }
         if(scene2.name == "StartMenu")
         {
+            Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
             Destroy(go);
             PaddleDecider.SetActive(true);
             P.SetActive(true);
             Pa.SetActive(true);
             GameObject.Find("PlayerMenu").SetActive(false);
+            Canvas Canvas = PaddleDecider.GetComponent<Canvas>();
+            Canvas.worldCamera = Camera;
         }
     }
     

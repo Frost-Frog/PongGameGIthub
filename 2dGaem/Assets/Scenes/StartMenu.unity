@@ -686,7 +686,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274949163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f5f8b679d4fd8f4ebbbf2bd4712c920, type: 3}
   m_Name: 
@@ -1402,6 +1402,7 @@ GameObject:
   - component: {fileID: 422514952}
   - component: {fileID: 422514951}
   - component: {fileID: 422514950}
+  - component: {fileID: 422514954}
   m_Layer: 5
   m_Name: GoodCanvas
   m_TagString: Untagged
@@ -1461,7 +1462,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1069953762}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1493,6 +1494,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &422514954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422514949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5f8b679d4fd8f4ebbbf2bd4712c920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &484061909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,7 +3887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 2
-  intensity: 0.016666668
+  intensity: 0.02
   increase: 0
 --- !u!1 &1603806327
 GameObject:

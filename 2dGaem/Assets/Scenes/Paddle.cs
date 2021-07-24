@@ -19,7 +19,6 @@ public class Paddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         height = transform.localScale.y;
     }
 
@@ -27,7 +26,7 @@ public class Paddle : MonoBehaviour
     void Update()
     {
         //movement
-        move = Input.GetAxis(input) * Time.deltaTime * pspeed;
+        move = Input.GetAxisRaw(input) * Time.deltaTime * pspeed;
         
         if (transform.position.y < GameManager.bottomLeft.y + height/2 && move < 0)
         {
@@ -38,17 +37,43 @@ public class Paddle : MonoBehaviour
             move = 0;
         }
         transform.Translate(move * Vector2.up);
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.LeftAlt))
         {
             if(!isRight)
-            transform.localScale = new Vector2(transform.localScale.x, 20);
-            height = transform.localScale.y;
+            {
+                transform.localScale = new Vector2(transform.localScale.x, 20);
+                height = transform.localScale.y;
+                return;
+            }
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+        if(Input.GetKeyUp(KeyCode.LeftAlt))
         {
-            transform.localScale = new Vector2(transform.localScale.x, 3.5f);
-            height = transform.localScale.y;
+            if(!isRight)
+            {
+                transform.localScale = new Vector2(transform.localScale.x, 3.5f);
+                height = transform.localScale.y;
+                return;
+            }
+            
         }
+        // if(Input.GetKey(KeyCode.RightShift))
+        // {
+        //     if(isRight)
+        //     {
+        //         transform.localScale = new Vector2(transform.localScale.x, 20);
+        //         height = transform.localScale.y;
+        //         return;
+        //     }
+        // }
+        // if(Input.GetKeyUp(KeyCode.RightShift))
+        // {
+        //     if(isRight)
+        //     {
+        //         transform.localScale = new Vector2(transform.localScale.x, 3.5f);
+        //         height = transform.localScale.y;
+        //         return;
+        //     }
+        // }
     }
 
     public void init(bool IsRightPaddle)

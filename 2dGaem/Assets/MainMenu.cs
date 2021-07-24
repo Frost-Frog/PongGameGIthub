@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 
    void Start()
    {
-
+       
    }
 
    public void QuitGame()
