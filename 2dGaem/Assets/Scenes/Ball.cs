@@ -26,6 +26,7 @@ public class Ball : MonoBehaviour
     int[] jitterDirection = {1, 2};
     int[] takeoffdirection = {-1, 1};
     public int restart;
+    public GameObject blackhole;
     
     float xmove;
     float ymove;
@@ -50,7 +51,7 @@ public class Ball : MonoBehaviour
         pLeftcount = 0;
         pRightcount = 0;
         restart = 0;
-        takeoff();
+        Starttakeoff();
         //speed_increase = 0;
         
     }
@@ -138,11 +139,11 @@ public class Ball : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) == true)
             {
-                Time.timeScale = 1;
                 AutoLoad = false;
                 FindObjectOfType<AudioManager>().Stop("GameTheme");
                 FindObjectOfType<AudioManager>().Play("MenuTheme");
                 SceneManager.LoadScene("StartMenu");
+                Time.timeScale = 1;
             }
         }
        // Debug.Log(_rigidbody.velocity.x);
@@ -265,6 +266,32 @@ public class Ball : MonoBehaviour
 
     void takeoff()
     {
+        float Blackhole = Random.Range(1,5);
+        if(Blackhole == 4)
+        {
+            GameObject clone = Instantiate(blackhole, new Vector2(0, Random.Range(-4f, 4f)), Quaternion.identity);
+            clone.SetActive(true);
+        }
+        // int random1 = takeoffdirection[Random.Range(0, 2)];
+        // int random2 = takeoffdirection[Random.Range(0, 2)];
+        _rigidbody.velocity = Vector2.zero;
+        transform.position = new Vector2(0, 0);
+        // direction = new Vector2(random1, random2).normalized;
+        
+        xmove = Random.value < 0.5f ? -1.0f : 1.0f;
+        ymove = Random.value < 0.5f ? Random.Range( -1.0f, -0.5f) : Random.Range(0.5f, 1.0f);
+        //direction = new Vector2(xmove, ymove);
+        Vector2 movement = new Vector2(xmove * speed, ymove * speed);
+        _rigidbody.AddForce(movement);
+        //Debug.Log(movement.x);
+    }
+    void Starttakeoff()
+    {
+        // float Blackhole = 4 /*Random.Range(1,5)*/;
+        // if(Blackhole == 4)
+        // {
+        //     Instantiate(GameObject.FindGameObjectWithTag("Blackhole"), new Vector2(0, Random.Range(-4f, 4f)), Quaternion.identity);
+        // }
         // int random1 = takeoffdirection[Random.Range(0, 2)];
         // int random2 = takeoffdirection[Random.Range(0, 2)];
         _rigidbody.velocity = Vector2.zero;

@@ -47,8 +47,9 @@ public class PauseMenu : MonoBehaviour
     }
     public void main_menu()
     {
-        Time.timeScale = 1;
+        FindObjectOfType<AudioManager>().Play("MenuTheme");   
+        FindObjectOfType<AudioManager>().Stop("GameTheme");
         SceneManager.LoadScene("StartMenu");
-        FindObjectOfType<AudioManager>().Play("MenuTheme");
+        Time.timeScale = 1;
     }
 }

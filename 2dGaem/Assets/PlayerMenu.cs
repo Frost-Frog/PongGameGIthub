@@ -30,6 +30,7 @@ public class PlayerMenu : MonoBehaviour
     public void PlayGame1Player()
     {
         //Time.timeScale = 1;
+        SceneManager.sceneLoaded -= PlayGameSingle;
         SceneManager.sceneLoaded -= PlayGameDouble; 
         SceneManager.sceneLoaded += PlayGameSingle;
         SceneManager.LoadScene("PongPlay");
@@ -71,9 +72,10 @@ public class PlayerMenu : MonoBehaviour
     public void PlayGame2Player()
     {
         //Time.timeScale = 1;
-        SceneManager.LoadScene("PongPlay");
+        SceneManager.sceneLoaded -= PlayGameDouble;
         SceneManager.sceneLoaded -= PlayGameSingle;
         SceneManager.sceneLoaded += PlayGameDouble;
+        SceneManager.LoadScene("PongPlay");
     }
     public void PlayGameDouble(Scene scene, LoadSceneMode mode)
     {
