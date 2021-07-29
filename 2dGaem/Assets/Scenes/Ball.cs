@@ -63,6 +63,10 @@ public class Ball : MonoBehaviour
         {
             CanClick = true;
             Time.timeScale = 0;
+            foreach(GameObject Blackhole in GameObject.FindGameObjectsWithTag("Blackhole"))
+            {
+                Blackhole.SetActive(false);
+            }
             //enabled = false;
             pLeftWin.SetActive(true);
             restart = 1;
@@ -83,6 +87,11 @@ public class Ball : MonoBehaviour
         {
             CanClick = true;
             Time.timeScale = 0;
+            FindObjectsOfType<Gravity>();
+            foreach(Gravity a in FindObjectsOfType<Gravity>())
+            {
+                GameObject.FindGameObjectWithTag("Blackhole").SetActive(false);
+            }
             //enabled = false;
             pRightWin.SetActive(true);
             restart = 1;
@@ -245,7 +254,7 @@ public class Ball : MonoBehaviour
             
             bool rightwall = collision.gameObject.GetComponent<Wall>().rightwall;
            
-           
+            takeoff();
             if (rightwall == true)
             {
                 pLeftcount += 1;
@@ -256,7 +265,7 @@ public class Ball : MonoBehaviour
                 pRightcount += 1;
                 StartCoroutine(SetCountText());;
             }
-            takeoff();
+            
         }
         if (collision.gameObject.tag == "TopWall")
         {
@@ -269,7 +278,7 @@ public class Ball : MonoBehaviour
         float Blackhole = Random.Range(1,5);
         if(Blackhole == 4)
         {
-            GameObject clone = Instantiate(blackhole, new Vector2(0, Random.Range(-4f, 4f)), Quaternion.identity);
+            GameObject clone = Instantiate(blackhole, new Vector2(Random.Range(-6.2f, 6.2f), Random.Range(-6.2f, 6.2f)), Quaternion.identity);
             clone.SetActive(true);
         }
         // int random1 = takeoffdirection[Random.Range(0, 2)];
