@@ -114,6 +114,23 @@ public class Paddle : MonoBehaviour
                 ParticlePosLeft.transform.position = new Vector3(ParticlePosLeft.transform.position.x, GameObject.Find("Ball").transform.position.y, ParticlePosLeft.transform.position.z);
                 psLeft.Play();
             }
+            ContactPoint2D contact = collider.GetContact(0);
+            //Vector2 dpos = new Vector2 (transform.position.x, transform.position.y);
+            //Vector2 dscal = new Vector2 (transform.localScale.x)
+            if(contact.point.y < transform.position.y)
+            {
+                transform.position += new Vector3(0,1,0) * (transform.position.y - height/2 + contact.point.y) / 2; 
+                transform.localScale += new Vector3(0,1,0) * (transform.position.y - height/2 - contact.point.y); 
+            }
+            if(contact.point.y > transform.position.y)
+            {
+                transform.position -= new Vector3(0,1,0) * (transform.position.y + height/2 + contact.point.y) / 2; 
+                transform.localScale -= new Vector3(0,1,0) * (transform.position.y + height/2 - contact.point.y); 
+            }
+                
+            height = transform.localScale.y;
+            
         }
+
     }
 }
