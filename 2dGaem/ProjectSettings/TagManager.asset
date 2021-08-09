@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - TopWall
   - Blackhole
+  - AIPaddle
   layers:
   - Default
   - TransparentFX

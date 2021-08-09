@@ -119,13 +119,19 @@ public class Paddle : MonoBehaviour
             //Vector2 dscal = new Vector2 (transform.localScale.x)
             if(contact.point.y < transform.position.y)
             {
-                transform.position += new Vector3(0,1,0) * (transform.position.y - height/2 + contact.point.y) / 2; 
-                transform.localScale += new Vector3(0,1,0) * (transform.position.y - height/2 - contact.point.y); 
+                transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y); 
+                transform.position += new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y)/2 ; 
+                
+                //Debug.Log(this.transform.position.y);
+                //Debug.Log(contact.point.y);
             }
             if(contact.point.y > transform.position.y)
             {
-                transform.position -= new Vector3(0,1,0) * (transform.position.y + height/2 + contact.point.y) / 2; 
-                transform.localScale -= new Vector3(0,1,0) * (transform.position.y + height/2 - contact.point.y); 
+                transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y); 
+                transform.position -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y)/2; 
+                
+                //Debug.Log(this.transform.position.y);
+                //Debug.Log(contact.point.y);
             }
                 
             height = transform.localScale.y;

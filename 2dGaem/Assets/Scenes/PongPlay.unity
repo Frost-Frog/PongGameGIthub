@@ -2632,6 +2632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIpaddle
       objectReference: {fileID: 0}
+    - target: {fileID: 6334727847840327986, guid: 1808d1a0f27a76c4d85905ecf06873e0, type: 3}
+      propertyPath: m_TagString
+      value: AIPaddle
+      objectReference: {fileID: 0}
     - target: {fileID: 6938565332036327259, guid: 1808d1a0f27a76c4d85905ecf06873e0, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2676,7 +2680,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2117020586210162089, guid: 1808d1a0f27a76c4d85905ecf06873e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1808d1a0f27a76c4d85905ecf06873e0, type: 3}
 --- !u!1 &1522337367
 GameObject:

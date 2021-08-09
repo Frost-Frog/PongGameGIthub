@@ -189,17 +189,23 @@ public class Ball : MonoBehaviour
     {
         
 
-        if (collision.gameObject.tag == "Paddle")
+        if (collision.gameObject.tag == "Paddle"|| collision.gameObject.tag == "AIPaddle")
         {
             FindObjectOfType<AudioManager>().Play("PongPaddleAudio");
             Vector2 normal = collision.GetContact(0).normal;
             Debug.Log(_rigidbody.velocity.x);
         
             int jitterDir = jitterDirection[Random.Range(0, 2)];
+            bool isRight = true;
             
-            bool isRight = collision.gameObject.GetComponent<Paddle>().isRight;
+            if(collision.gameObject.tag == "Paddle")
+            {
+                isRight = collision.gameObject.GetComponent<Paddle>().isRight;
+                return;
+            }
+            
 
-            if (isRight == true)
+            if (isRight == true || collision.gameObject.tag == "AIPaddle")
             {
                 //_rigidbody.AddForce(new Vector2(-2*_rigidbody.velocity.x*-2 , 100));
                 hitcount += 1;
@@ -230,7 +236,12 @@ public class Ball : MonoBehaviour
         
 
             float move = collision.gameObject.GetComponent<Paddle>().move;
+            float AImove = collision.gameObject.GetComponent<AIPaddle>().move;
             if (move != 0)
+            {
+                _rigidbody.AddForce(new Vector2(0, move*50));
+            }
+            if(AImove != 0)
             {
                 _rigidbody.AddForce(new Vector2(0, move*50));
             }
