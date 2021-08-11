@@ -10,6 +10,10 @@ public class Ball : MonoBehaviour
 {
     //public GameObject RightWall;
     //public GameObject LeftWall;
+    bool isRight;
+    public AIPaddle AIobj;
+    public Paddle paddleobj;
+    public float move;
     bool CanClick;
     bool AutoLoad;
     float hitcount = 0;
@@ -189,20 +193,18 @@ public class Ball : MonoBehaviour
     {
         
 
-        if (collision.gameObject.tag == "Paddle"|| collision.gameObject.tag == "AIPaddle")
+        if (collision.gameObject.tag == "Paddle" || collision.gameObject.tag == "AIPaddle")
         {
             FindObjectOfType<AudioManager>().Play("PongPaddleAudio");
             Vector2 normal = collision.GetContact(0).normal;
-            Debug.Log(_rigidbody.velocity.x);
+            //Debug.Log(_rigidbody.velocity.x);
         
-            int jitterDir = jitterDirection[Random.Range(0, 2)];
-            bool isRight = true;
+            float jitterDir = jitterDirection[Random.Range(0, 2)];
             
-            if(collision.gameObject.tag == "Paddle")
-            {
-                isRight = collision.gameObject.GetComponent<Paddle>().isRight;
-                return;
-            }
+            
+            
+                isRight = paddleobj.isRight;
+
             
 
             if (isRight == true || collision.gameObject.tag == "AIPaddle")
@@ -222,6 +224,7 @@ public class Ball : MonoBehaviour
             if (isRight == false)
             {
                 //_rigidbody.AddForce(new Vector2(-2*_rigidbody.velocity.x , 100));
+                Debug.Log(5);
                 hitcount += 1;
                 if (jitterDir == 1)
                 {
@@ -232,20 +235,33 @@ public class Ball : MonoBehaviour
                     _rigidbody.AddForce(new Vector2 (0, 10));
                 }
                 
+                
             }
         
 
-            float move = collision.gameObject.GetComponent<Paddle>().move;
-            float AImove = collision.gameObject.GetComponent<AIPaddle>().move;
+            if (collision.gameObject.tag == "Paddle")
+            {
+                move = paddleobj.move;
+            }
+            if (collision.gameObject.tag ==  "AIPaddle") 
+            {
+                move = AIobj.move;
+            }
+
+            
+
+
+            //float AImove = collision.gameObject.GetComponent<AIPaddle>().move;
             if (move != 0)
             {
-                _rigidbody.AddForce(new Vector2(0, move*50));
+                _rigidbody.AddForce(new Vector2(0, move*1000));
+                Debug.Log(move);
             }
-            if(AImove != 0)
-            {
-                _rigidbody.AddForce(new Vector2(0, move*50));
-            }
-            //Debug.Log(move);
+            // if(AImove != 0)
+            // {
+            //     _rigidbody.AddForce(new Vector2(0, move*50));
+            // }
+            
 
             //Debug.Log(_rigidbody.velocity.y);
             
@@ -282,7 +298,9 @@ public class Ball : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("WallBounce");
         }
+
     }
+    
 
     void takeoff()
     {
@@ -321,7 +339,7 @@ public class Ball : MonoBehaviour
         xmove = Random.value < 0.5f ? -1.0f : 1.0f;
         ymove = Random.value < 0.5f ? Random.Range( -1.0f, -0.5f) : Random.Range(0.5f, 1.0f);
         //direction = new Vector2(xmove, ymove);
-        Vector2 movement = new Vector2(xmove * speed, ymove * speed);
+        Vector2 movement = new Vector2(xmove * speed, 0 * speed);
         _rigidbody.AddForce(movement);
         //Debug.Log(movement.x);
     }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    protected Rigidbody2D _rigidbody;
+    //Rigidbody2D _rigidbody;
     [SerializeField]
     float pspeed;
+    
     GameObject ParticlePosLeft;
     GameObject ParticlePosRight;
     ParticleSystem psLeft;
@@ -114,27 +115,25 @@ public class Paddle : MonoBehaviour
                 ParticlePosLeft.transform.position = new Vector3(ParticlePosLeft.transform.position.x, GameObject.Find("Ball").transform.position.y, ParticlePosLeft.transform.position.z);
                 psLeft.Play();
             }
-            ContactPoint2D contact = collider.GetContact(0);
-            //Vector2 dpos = new Vector2 (transform.position.x, transform.position.y);
-            //Vector2 dscal = new Vector2 (transform.localScale.x)
-            if(contact.point.y < transform.position.y)
-            {
-                transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y); 
-                transform.position += new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y)/2 ; 
+            // ContactPoint2D contact = collider.GetContact(0);
+            // if(contact.point.y < transform.position.y)
+            // {
+            //     transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y); 
+            //     transform.position += new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y)/2 ; 
                 
-                //Debug.Log(this.transform.position.y);
-                //Debug.Log(contact.point.y);
-            }
-            if(contact.point.y > transform.position.y)
-            {
-                transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y); 
-                transform.position -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y)/2; 
+            //     //Debug.Log(this.transform.position.y);
+            //     //Debug.Log(contact.point.y);
+            // }
+            // if(contact.point.y > transform.position.y)
+            // {
+            //     transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y); 
+            //     transform.position -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y)/2; 
                 
-                //Debug.Log(this.transform.position.y);
-                //Debug.Log(contact.point.y);
-            }
+            //     //Debug.Log(this.transform.position.y);
+            //     //Debug.Log(contact.point.y);
+            // }
                 
-            height = transform.localScale.y;
+            // height = transform.localScale.y;
             
         }
 
