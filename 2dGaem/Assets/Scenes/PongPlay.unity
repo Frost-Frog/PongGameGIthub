@@ -418,6 +418,14 @@ PrefabInstance:
       propertyPath: paddleobj
       value: 
       objectReference: {fileID: 665494993}
+    - target: {fileID: -7341985841033196954, guid: c3d17795c9db0a54184fcc8648856831, type: 3}
+      propertyPath: paddleobjl
+      value: 
+      objectReference: {fileID: 665494993}
+    - target: {fileID: -7341985841033196954, guid: c3d17795c9db0a54184fcc8648856831, type: 3}
+      propertyPath: paddleobjr
+      value: 
+      objectReference: {fileID: 1626706760}
     - target: {fileID: 1185709929631613331, guid: c3d17795c9db0a54184fcc8648856831, type: 3}
       propertyPath: m_Name
       value: Ball
@@ -2641,7 +2649,7 @@ PrefabInstance:
       objectReference: {fileID: 293156835}
     - target: {fileID: 1184897688039016150, guid: 1808d1a0f27a76c4d85905ecf06873e0, type: 3}
       propertyPath: pspeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2117020586210162089, guid: 1808d1a0f27a76c4d85905ecf06873e0, type: 3}
       propertyPath: pspeed

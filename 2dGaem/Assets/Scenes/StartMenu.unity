@@ -1552,9 +1552,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f8189be7f1fa948bfa9373a7696bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
   P: {fileID: 274949163}
   Pa: {fileID: 1600289787}
   PaddleDecider: {fileID: 422514949}
+  AIPaddle: {fileID: 0}
+  PlayerPaddle: {fileID: 0}
 --- !u!1 &494547096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3886,8 +3889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ae8f5dbe23af24088053f95c33c82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 2
-  intensity: 0.02
+  frequency: 0.3
+  intensity: 0.01
   increase: 0
 --- !u!1 &1603806327
 GameObject:
