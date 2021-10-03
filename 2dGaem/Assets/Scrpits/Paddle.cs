@@ -7,6 +7,7 @@ public class Paddle : MonoBehaviour
     //Rigidbody2D _rigidbody;
     [SerializeField]
     float pspeed;
+    private bool canexplode = false;
     GameObject explode;
     public Explodable _explodable;
     public GameObject PaddleBreak;
@@ -28,6 +29,10 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            canexplode = !canexplode;
+        }
         //movement
         move = Input.GetAxisRaw(input) * Time.deltaTime * pspeed;
         
@@ -118,37 +123,41 @@ public class Paddle : MonoBehaviour
                 ParticlePosLeft.transform.position = new Vector3(ParticlePosLeft.transform.position.x, GameObject.Find("Ball").transform.position.y, ParticlePosLeft.transform.position.z);
                 psLeft.Play();
             }
-            ContactPoint2D contact = collider.GetContact(0);
-            if(contact.point.y < transform.position.y)
+            if(canexplode == true)
             {
-                transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y); 
-                transform.position += new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y)/2; 
-                
-                explode = Instantiate(PaddleBreak, new Vector3(-10,contact.point.y,0), Quaternion.identity);
-                explode.transform.localScale = new Vector3(1,1* Mathf.Abs(transform.position.y - height/2 - contact.point.y),0);
-                explode.transform.position = new Vector3(this.transform.position.x,contact.point.y,0);
-                
-                //Debug.Log(this.transform.position.y);
-                //Debug.Log(contact.point.y);
+                ContactPoint2D contact = collider.GetContact(0);
+                if(contact.point.y < transform.position.y)
+                {
+                    transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y); 
+                    transform.position += new Vector3(0,1,0) * Mathf.Abs(transform.position.y - height/2 - contact.point.y)/2; 
+                    
+                    explode = Instantiate(PaddleBreak, new Vector3(-10,contact.point.y,0), Quaternion.identity);
+                    explode.transform.localScale = new Vector3(1,1* Mathf.Abs(transform.position.y - height/2 - contact.point.y),0);
+                    explode.transform.position = new Vector3(this.transform.position.x,contact.point.y,0);
+                    
+                    //Debug.Log(this.transform.position.y);
+                    //Debug.Log(contact.point.y);
+                }
+                if(contact.point.y > transform.position.y)
+                {
+                    transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y); 
+                    transform.position -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y)/2; 
+                    
+                    explode = Instantiate(PaddleBreak, new Vector3(-10,contact.point.y,0), Quaternion.identity);
+                    explode.transform.localScale = new Vector3(1,1* Mathf.Abs(transform.position.y + height/2 - contact.point.y),0);
+                    explode.transform.position = new Vector3(this.transform.position.x,contact.point.y,0);
+                    
+                    //Debug.Log(this.transform.position.y);
+                    //Debug.Log(contact.point.y);
+                }
+                    
+                height = transform.localScale.y;
+                Explodable _explodable = explode.GetComponent<Explodable>();
+                _explodable.explode();
+                ExplosionForce ef = GameObject.FindObjectOfType<ExplosionForce>();
+                ef.doExplosion(explode.transform.position);
             }
-            if(contact.point.y > transform.position.y)
-            {
-                transform.localScale -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y); 
-                transform.position -= new Vector3(0,1,0) * Mathf.Abs(transform.position.y + height/2 - contact.point.y)/2; 
-                
-                explode = Instantiate(PaddleBreak, new Vector3(-10,contact.point.y,0), Quaternion.identity);
-                explode.transform.localScale = new Vector3(1,1* Mathf.Abs(transform.position.y + height/2 - contact.point.y),0);
-                explode.transform.position = new Vector3(this.transform.position.x,contact.point.y,0);
-                
-                //Debug.Log(this.transform.position.y);
-                //Debug.Log(contact.point.y);
-            }
-                
-            height = transform.localScale.y;
-            Explodable _explodable = explode.GetComponent<Explodable>();
-            _explodable.explode();
-		    ExplosionForce ef = GameObject.FindObjectOfType<ExplosionForce>();
-		    ef.doExplosion(explode.transform.position);
+            
         }
 
     }
