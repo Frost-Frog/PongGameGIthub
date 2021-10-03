@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 81
+  controlID: 39
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 110
+  controlID: 48
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 111
+  controlID: 49
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -423,9 +423,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fa8c0100
-      m_LastClickedID: 0
-      m_ExpandedIDs: 68f4ecffbef6ecff9207edffd81eedff4e24edff064bedffcc53edff525eedff687cedffc8e7edff08e9edffbef9edffe8feedffccf4ffff40fbffff
+      m_SelectedIDs: 3e530000
+      m_LastClickedID: 21310
+      m_ExpandedIDs: 94f8ffffe652000024530000485300007653000026540000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.539286, y: 1.4527127, z: -5315.7007}
+    m_Target: {x: -10.52191, y: 3.150432, z: -5316.0894}
     speed: 2
-    m_Value: {x: -9.539286, y: 1.4527127, z: -5315.7007}
+    m_Value: {x: -10.52191, y: 3.150432, z: -5316.0894}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -538,9 +538,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.862729
+    m_Target: 16.75062
     speed: 2
-    m_Value: 12.862729
+    m_Value: 16.75062
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -611,28 +611,28 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scenes
   m_LastFoldersGridSize: 63
-  m_LastProjectPath: C:\Users\purpl\Documents\GitHub\PongGameGIthub\2dGaem
+  m_LastProjectPath: C:\Users\Purple Camel\Documents\GitHub\PongGameGIthub\2dGaem
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 22500000
-    m_LastClickedID: 20514
-    m_ExpandedIDs: 00000000185000001a5000001c50000000ca9a3b
+    m_SelectedIDs: d8540000
+    m_LastClickedID: 21720
+    m_ExpandedIDs: 00000000c2540000c4540000ca54000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scrpits
-      m_OriginalName: Scrpits
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 20524
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -646,7 +646,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000185000001a5000001c500000
+    m_ExpandedIDs: 00000000c2540000c4540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000fcbafeffcc4f0000c04d000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -932,7 +932,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 409
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0
